@@ -8,25 +8,31 @@ namespace list
         public Form1()
         {
             InitializeComponent();
+            Add.Enabled = false;
         }
-        
-        
         private void Add_Click(object sender, EventArgs e)
         {
             User user = new User(Nametbx.Text, Surnametbx.Text, Agetbx.Text);
-            Add.Enabled = true;
             UsersLbx.Items.Add(user);
+            Nametbx.Clear();
+            Surnametbx.Clear();
+            Agetbx.Clear();
         }
-
         private void Nametbx_TextChanged(object sender, EventArgs e)
         {
-            if (Nametbx.Text == "") { Add.Enabled = false; }
-            else { Add.Enabled = true; }
+            Add.Enabled = IsNotEmpty();
         }
-
         private void Surnametbx_TextChanged(object sender, EventArgs e)
         {
-
+            Add.Enabled = IsNotEmpty();
         }
+        private void Agetbx_TextChanged(object sender, EventArgs e)
+        {
+            Add.Enabled = IsNotEmpty();
+        }
+
+        private bool IsNotEmpty() => !string.IsNullOrWhiteSpace(Nametbx.Text) && 
+                                     !string.IsNullOrWhiteSpace(Surnametbx.Text) && 
+                                     !string.IsNullOrWhiteSpace(Agetbx.Text);
     }
 }
