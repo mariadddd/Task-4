@@ -12,10 +12,9 @@
             Surname = surname;
             Age = age;
         }
-        public string Info() 
-        {
-            result = $"{Name} {Surname}, {Age}.";
-            return result;
+        public override string ToString() 
+        {  
+            return $"{Name} {Surname}, {Age}."; 
         }
     }
 }
