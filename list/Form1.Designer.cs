@@ -38,6 +38,7 @@
             this.Surnametbx = new System.Windows.Forms.TextBox();
             this.Agetbx = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.Edit = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -45,16 +46,17 @@
             // 
             this.UsersLbx.FormattingEnabled = true;
             this.UsersLbx.ItemHeight = 16;
-            this.UsersLbx.Location = new System.Drawing.Point(50, 83);
+            this.UsersLbx.Location = new System.Drawing.Point(47, 83);
             this.UsersLbx.Name = "UsersLbx";
-            this.UsersLbx.Size = new System.Drawing.Size(450, 292);
+            this.UsersLbx.Size = new System.Drawing.Size(442, 292);
             this.UsersLbx.TabIndex = 0;
             this.UsersLbx.Tag = "";
+            this.UsersLbx.SelectedIndexChanged += new System.EventHandler(this.UsersLbx_SelectedIndexChanged);
             // 
             // Add
             // 
             this.Add.Enabled = false;
-            this.Add.Location = new System.Drawing.Point(542, 352);
+            this.Add.Location = new System.Drawing.Point(515, 352);
             this.Add.Name = "Add";
             this.Add.Size = new System.Drawing.Size(75, 23);
             this.Add.TabIndex = 1;
@@ -74,7 +76,7 @@
             // Namelbl
             // 
             this.Namelbl.AutoSize = true;
-            this.Namelbl.Location = new System.Drawing.Point(539, 102);
+            this.Namelbl.Location = new System.Drawing.Point(512, 99);
             this.Namelbl.Name = "Namelbl";
             this.Namelbl.Size = new System.Drawing.Size(44, 16);
             this.Namelbl.TabIndex = 3;
@@ -83,7 +85,7 @@
             // Surnamelbl
             // 
             this.Surnamelbl.AutoSize = true;
-            this.Surnamelbl.Location = new System.Drawing.Point(539, 146);
+            this.Surnamelbl.Location = new System.Drawing.Point(512, 143);
             this.Surnamelbl.Name = "Surnamelbl";
             this.Surnamelbl.Size = new System.Drawing.Size(61, 16);
             this.Surnamelbl.TabIndex = 4;
@@ -92,7 +94,7 @@
             // Agelbl
             // 
             this.Agelbl.AutoSize = true;
-            this.Agelbl.Location = new System.Drawing.Point(539, 190);
+            this.Agelbl.Location = new System.Drawing.Point(512, 187);
             this.Agelbl.Name = "Agelbl";
             this.Agelbl.Size = new System.Drawing.Size(32, 16);
             this.Agelbl.TabIndex = 5;
@@ -104,7 +106,7 @@
             this.Nametbx.Name = "Nametbx";
             this.Nametbx.Size = new System.Drawing.Size(147, 22);
             this.Nametbx.TabIndex = 6;
-            this.Nametbx.TextChanged += new System.EventHandler(this.Nametbx_TextChanged);
+            this.Nametbx.TextChanged += new System.EventHandler(this.TextBoxes_TextChanged);
             // 
             // Surnametbx
             // 
@@ -112,7 +114,7 @@
             this.Surnametbx.Name = "Surnametbx";
             this.Surnametbx.Size = new System.Drawing.Size(147, 22);
             this.Surnametbx.TabIndex = 7;
-            this.Surnametbx.TextChanged += new System.EventHandler(this.Surnametbx_TextChanged);
+            this.Surnametbx.TextChanged += new System.EventHandler(this.TextBoxes_TextChanged);
             // 
             // Agetbx
             // 
@@ -120,22 +122,33 @@
             this.Agetbx.Name = "Agetbx";
             this.Agetbx.Size = new System.Drawing.Size(147, 22);
             this.Agetbx.TabIndex = 8;
+            this.Agetbx.TextChanged += new System.EventHandler(this.TextBoxes_TextChanged);
             // 
             // panel1
             // 
             this.panel1.Controls.Add(this.Nametbx);
             this.panel1.Controls.Add(this.Agetbx);
             this.panel1.Controls.Add(this.Surnametbx);
-            this.panel1.Location = new System.Drawing.Point(611, 92);
+            this.panel1.Location = new System.Drawing.Point(584, 83);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(177, 141);
             this.panel1.TabIndex = 9;
+            // 
+            // Edit
+            // 
+            this.Edit.Location = new System.Drawing.Point(600, 352);
+            this.Edit.Name = "Edit";
+            this.Edit.Size = new System.Drawing.Size(75, 23);
+            this.Edit.TabIndex = 10;
+            this.Edit.Text = "Edit";
+            this.Edit.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.Edit);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.Agelbl);
             this.Controls.Add(this.Surnamelbl);
@@ -164,6 +177,7 @@
         private System.Windows.Forms.TextBox Surnametbx;
         private System.Windows.Forms.TextBox Agetbx;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button Edit;
     }
 }
 

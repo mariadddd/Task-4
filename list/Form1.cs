@@ -18,21 +18,25 @@ namespace list
             Surnametbx.Clear();
             Agetbx.Clear();
         }
-        private void Nametbx_TextChanged(object sender, EventArgs e)
+        private void TextBoxes_TextChanged(object sender, EventArgs e)
         {
             Add.Enabled = IsNotEmpty();
-        }
-        private void Surnametbx_TextChanged(object sender, EventArgs e)
-        {
-            Add.Enabled = IsNotEmpty();
-        }
-        private void Agetbx_TextChanged(object sender, EventArgs e)
-        {
-            Add.Enabled = IsNotEmpty();
-        }
+        }        
 
         private bool IsNotEmpty() => !string.IsNullOrWhiteSpace(Nametbx.Text) && 
                                      !string.IsNullOrWhiteSpace(Surnametbx.Text) && 
                                      !string.IsNullOrWhiteSpace(Agetbx.Text);
+        private void UsersLbx_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            User user = UsersLbx.SelectedItem as User;
+            Nametbx.Text = user.Name;
+            Surnametbx.Text = user.Surname;
+            Agetbx.Text = user.Age;
+        }
+
+        private void Delete_Click(object sender, EventArgs e)
+        {
+            UsersLbx.Items.Remove(UsersLbx.SelectedItem);
+        }
     }
 }
