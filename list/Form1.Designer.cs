@@ -72,6 +72,7 @@
             this.Delete.TabIndex = 2;
             this.Delete.Text = "Delete";
             this.Delete.UseVisualStyleBackColor = true;
+            this.Delete.Click += new System.EventHandler(this.Delete_Click);
             // 
             // Namelbl
             // 
@@ -142,6 +143,7 @@
             this.Edit.TabIndex = 10;
             this.Edit.Text = "Edit";
             this.Edit.UseVisualStyleBackColor = true;
+            this.Edit.Click += new System.EventHandler(this.Edit_Click);
             // 
             // Form1
             // 
