@@ -12,7 +12,6 @@
             Surname = surname;
             Age = age;
         }
-        public User() { }
         public override string ToString() 
         {  
             return $"{Name} {Surname}, {Age}."; 

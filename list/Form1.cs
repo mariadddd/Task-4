@@ -27,6 +27,7 @@ namespace list
         private void TextBoxes_TextChanged(object sender, EventArgs e)
         {
             Add.Enabled = IsNotEmpty();
+            Edit.Enabled = IsNotEmptyAndSelected();
         }        
 
         private bool IsNotEmpty() => !string.IsNullOrWhiteSpace(Nametbx.Text) && 
@@ -34,20 +35,16 @@ namespace list
                                      !string.IsNullOrWhiteSpace(Agetbx.Text);
         
         private void UsersLbx_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (UsersLbx.SelectedIndex == -1) 
-            {
-                Delete.Enabled = false;
-                Edit.Enabled = false;
-                return; 
-            }
-            Delete.Enabled = true;
-            Edit.Enabled = true;
+        {           
+            Delete.Enabled = IsSelected();
+            Edit.Enabled = IsNotEmptyAndSelected();
+            if (IsSelected() == false) return;
             User user = UsersLbx.SelectedItem as User;
             Nametbx.Text = user.Name;
             Surnametbx.Text = user.Surname;
             Agetbx.Text = user.Age;
         }
+        private bool IsSelected() => UsersLbx.SelectedIndex != -1;
 
         private void Delete_Click(object sender, EventArgs e)
         {
@@ -56,18 +53,19 @@ namespace list
         }
 
         private void Edit_Click(object sender, EventArgs e)
-        {
-            //temp
-            if (UsersLbx.SelectedIndex == -1) return;
-            //end
-            var user = new User();
-            user.Name = Nametbx.Text;
-            user.Surname = Surnametbx.Text;
-            user.Age = Agetbx.Text;
+        {   
+            var user = new User(Nametbx.Text, Surnametbx.Text, Agetbx.Text);           
             int index = UsersLbx.SelectedIndex;
             UsersLbx.Items.Insert(UsersLbx.SelectedIndex,user);            
             UsersLbx.Items.RemoveAt(UsersLbx.SelectedIndex);
             UsersLbx.SelectedIndex = index;
-        }
+            TextBoxesClear();
+        }        
+        private bool IsNotEmptyAndSelected() => IsNotEmpty() == true && 
+                                                IsSelected() == true;
     }
 }
+//!string.IsNullOrWhiteSpace(Nametbx.Text) &&
+//                                                !string.IsNullOrWhiteSpace(Surnametbx.Text) &&
+//                                                !string.IsNullOrWhiteSpace(Agetbx.Text) &&
+//                                                UsersLbx.SelectedIndex != -1;
