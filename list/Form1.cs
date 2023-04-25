@@ -65,7 +65,3 @@ namespace list
                                                 IsSelected() == true;
     }
 }
-//!string.IsNullOrWhiteSpace(Nametbx.Text) &&
-//                                                !string.IsNullOrWhiteSpace(Surnametbx.Text) &&
-//                                                !string.IsNullOrWhiteSpace(Agetbx.Text) &&
-//                                                UsersLbx.SelectedIndex != -1;
